@@ -1,27 +1,73 @@
 <div class="row">
     <div class="col-sm-8 blog-main">
-        <?php foreach ($bbsList['page_Data'] as $article){?>
+        <?php if($bbsList['isShowImg']) { ?>
+            <div class="blog-body expansion" style="padding: 0;">
+                <div id="myCarousel" class="carousel slide" style="height:300px;">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <a href="http://www.luxiaosong.top//article/3">
+                                <img src="static/img/carousel/carousel2.jpg" alt="JSP使用JSTL进行日期比较"
+                                     title="JSP使用JSTL进行日期比较">
+                            </a>
+                            <div class="zyd-carousel-caption">JSP使用JSTL进行日期比较</div>
+                        </div>
+                        <div class="item ">
+                            <a href="http://www.luxiaosong.top//article/6">
+                                <img src="static/img/carousel/carousel1.jpg" alt="linux下利用nohup后台运行jar文件包程序"
+                                     title="linux下利用nohup后台运行jar文件包程序">
+                            </a>
+                            <div class="zyd-carousel-caption">linux下利用nohup后台运行jar文件包程序</div>
+                        </div>
+                        <div class="item ">
+                            <a href="http://www.luxiaosong.top//article/4">
+                                <img src="static/img/carousel/carousel3.jpg" alt="翻墙软件免费用" title="翻墙软件免费用">
+                            </a>
+                            <div class="zyd-carousel-caption">翻墙软件免费用</div>
+                        </div>
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="left carousel-control" href="http://47.98.164.175/#myCarousel" role="button"
+                       data-slide="prev">
+                        <span class="fa fa-angle-left fa-fw fa-3x" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="http://47.98.164.175/#myCarousel" role="button"
+                       data-slide="next">
+                        <span class="fa fa-angle-right fa-fw fa-3x" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        <?php
+        }
+        foreach ($bbsList['page_Data'] as $article){?>
         <article class="fade-in">
             <figure class="thumbnail">
                 <a href="detail.html">
                     <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F1516792670965.png-img_150x150" class="img-responsive lazy-img" alt="Cordova入门（一）创建android项目" src="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F1516792670965.png-img_150x150" style="display: block;">
                 </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/2">后端技术</a></span>
+                <span class="cat"><a href="https://www.zhyd.me/type/2"><?php echo $article['name']?></a></span>
             </figure>
             <header class="entry-header">
+                <!--//获取标题-->
                 <h2 class="entry-title">
-                    <!--标题-->
                     <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情"><?php echo $article['title']?></a>
                 </h2>
             </header>
             <div class="entry-content">
                 <div class="archive-content">
-                    <!--文章描述-->
-                    <?php echo $article['description']?>
+                   <?php echo $article['description']?>
                 </div>
                 <span class="title-l"></span>
                 <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2018-04-08</span>
+								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i><?php echo  $article['create_time']?></span>
 								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(88)</span>
 								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
 									<a href="detail.html#comment-box" rel="external nofollow">
@@ -36,333 +82,21 @@
             </div>
         </article>
         <?php }?>
-       <!-- <article class="fade-in">
-            <figure class="thumbnail">
-                <a href="detail.html">
-                    <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat/cover/20170806183429366.jpg-img_150x150" class="img-responsive lazy-img" alt="【漏洞公告】Spring Framework多个安全漏洞预警" style="display: block;">
-                </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/2">后端技术</a></span>
-            </figure>
-            <header class="entry-header">
-                <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">【漏洞公告】Spring Framework多个安全漏洞预警</a>
-                </h2>
-            </header>
-            <div class="entry-content">
-                <div class="archive-content">
-                    2018年4月7日，阿里云云盾应急响应中心监测到Spring官方在Spring Framework 5.0.5 和 4.3.15 修复了3个CVE漏洞(CVE-2018-1270，CVE-2018-1271，CVE-2018-1272)
-                </div>
-                <span class="title-l"></span>
-                <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2018-04-08</span>
-								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(28)</span>
-								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
-									<a href="detail.html#comment-box" rel="external nofollow">
-										<i class="fa fa-comments-o fa-fw"></i>评论(0)
-									</a>
-								</span>
-							</span>
-                <div class="clear"></div>
-                <span class="entry-more">
-								<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
-							</span>
-            </div>
-        </article>
-        <article class="fade-in">
-            <figure class="thumbnail">
-                <a href="detail.html">
-                    <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F20180329100409.png-img_150x150" class="img-responsive lazy-img" alt="快来薅羊毛！1核 2G1M宽带40GSSD硬盘才99元一年！" src="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F20180329100409.png-img_150x150" style="display: block;">
-                </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/4">开发工具</a></span>
-            </figure>
-            <header class="entry-header">
-                <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">快来薅羊毛！1核 2G1M宽带40GSSD硬盘才99元一年！</a>
-                </h2>
-            </header>
-            <div class="entry-content">
-                <div class="archive-content">
-                    老司机开车了，来不及了快上车！阿里云服务器 1核 2G 1M宽带 40G SSD硬盘才99元一年！3年只要279元！简直便宜到不要钱！！再不上车就没了，速度查看文章详情，参与优惠活动
-                </div>
-                <span class="title-l"></span>
-                <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2018-03-29</span>
-								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(158)</span>
-								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
-									<a href="detail.html#comment-box" rel="external nofollow">
-										<i class="fa fa-comments-o fa-fw"></i>评论(4)
-									</a>
-								</span>
-							</span>
-                <div class="clear"></div>
-                <span class="entry-more">
-								<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
-							</span>
-            </div>
-        </article>
-        <article class="fade-in">
-            <figure class="thumbnail">
-                <a href="detail.html">
-                    <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F20180329165402.png-img_150x150" class="img-responsive lazy-img" alt=" zTree实现拖拽节点进行排序的功能">
-                </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/1">前端技术</a></span>
-            </figure>
-            <header class="entry-header">
-                <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情"> zTree实现拖拽节点进行排序的功能</a>
-                </h2>
-            </header>
-            <div class="entry-content">
-                <div class="archive-content">
-                    zTree实现拖拽节点进行排序的功能
-                </div>
-                <span class="title-l"></span>
-                <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2018-03-29</span>
-								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(63)</span>
-								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
-									<a href="detail.html#comment-box" rel="external nofollow">
-									<i class="fa fa-comments-o fa-fw"></i>评论(2)
-									</a>
-								</span>
-							</span>
-                <div class="clear"></div>
-                <span class="entry-more">
-								<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
-							</span>
-            </div>
-        </article>
-        <article class="fade-in">
-            <figure class="thumbnail">
-                <a href="detail.html">
-                    <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat/cover/20170601134846507.png-img_150x150" class="img-responsive lazy-img" alt="配置MySQL开启远程连接的方法">
-                </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/2">后端技术</a></span>
-            </figure>
-            <header class="entry-header">
-                <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">配置MySQL开启远程连接的方法</a>
-                </h2>
-            </header>
-            <div class="entry-content">
-                <div class="archive-content">
-                    配置MySQL开启远程连接，
-                </div>
-                <span class="title-l"></span>
-                <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2018-03-19</span>
-								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(190)</span>
-								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
-									<a href="detail.html#comment-box" rel="external nofollow">
-									<i class="fa fa-comments-o fa-fw"></i>评论(3)
-									</a>
-								</span>
-							</span>
-                <div class="clear"></div>
-                <span class="entry-more">
-								<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
-							</span>
-            </div>
-        </article>
-        <article class="fade-in">
-            <figure class="thumbnail">
-                <a href="detail.html">
-                    <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat/cover/20170706181555350.png-img_150x150" class="img-responsive lazy-img" alt="记一次优化网站首页加载速度的过程">
-                </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/2">后端技术</a></span>
-            </figure>
-            <header class="entry-header">
-                <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">记一次优化网站首页加载速度的过程</a>
-                </h2>
-            </header>
-            <div class="entry-content">
-                <div class="archive-content">
-                    记一次优化网站首页加载速度的过程
-                </div>
-                <span class="title-l"></span>
-                <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2017-07-17</span>
-								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(168)</span>
-								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
-									<a href="detail.html#comment-box" rel="external nofollow">
-									<i class="fa fa-comments-o fa-fw"></i>评论(0)
-									</a>
-								</span>
-							</span>
-                <div class="clear"></div>
-                <span class="entry-more">
-								<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
-							</span>
-            </div>
-        </article>
-        <article class="fade-in">
-            <figure class="thumbnail">
-                <a href="detail.html">
-                    <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/website/img/favicon.ico-img_150x150" class="img-responsive lazy-img" alt="【超全】开发常用工具">
-                </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/4">开发工具</a></span>
-            </figure>
-            <header class="entry-header">
-                <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">【超全】开发常用工具</a>
-                </h2>
-            </header>
-            <div class="entry-content">
-                <div class="archive-content">
-                    v1、开发常用工具（整理于2016/11/169:22）第一版IntelliJIDEA（java语言开发的IDE）：http://www.jetbrains.com/idea/download/#se
-                </div>
-                <span class="title-l"></span>
-                <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2017-02-18</span>
-								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(131)</span>
-								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
-									<a href="detail.html#comment-box" rel="external nofollow">
-									<i class="fa fa-comments-o fa-fw"></i>评论(0)
-									</a>
-								</span>
-							</span>
-                <div class="clear"></div>
-                <span class="entry-more">
-								<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
-							</span>
-            </div>
-        </article>
-        <article class="fade-in">
-            <figure class="thumbnail">
-                <a href="detail.html">
-                    <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F20180329165402.png-img_150x150" class="img-responsive lazy-img" alt="致那位可能在copy我网站的仁兄">
-                </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/5">其他文章</a></span>
-            </figure>
-            <header class="entry-header">
-                <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">致那位可能在copy我网站的仁兄</a>
-                </h2>
-            </header>
-            <div class="entry-content">
-                <div class="archive-content">
-                    最近这一段时间，在百度统计中经常能够看到一个来自“localhost:7143”的访问记录...
-                </div>
-                <span class="title-l"></span>
-                <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2018-03-30</span>
-								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(97)</span>
-								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
-									<a href="detail.html#comment-box" rel="external nofollow">
-										<i class="fa fa-comments-o fa-fw"></i>评论(4)
-									</a>
-								</span>
-							</span>
-                <div class="clear"></div>
-                <span class="entry-more">
-							<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
-							</span>
-            </div>
-        </article>
-        <article class="fade-in">
-            <figure class="thumbnail">
-                <a href="detail.html">
-                    <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F20180316171033.png-img_150x150" class="img-responsive lazy-img" alt="通过js注入实现单页面显示多条“一言”">
-                </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/1">前端技术</a></span>
-            </figure>
-            <header class="entry-header">
-                <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">通过js注入实现单页面显示多条“一言”</a>
-                </h2>
-            </header>
-            <div class="entry-content">
-                <div class="archive-content">
-                    教你一行代码解决“在同一个页面中的多个地方同时显示一言”的问题
-                </div>
-                <span class="title-l"></span>
-                <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2018-03-16</span>
-								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(199)</span>
-								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
-									<a href="detail.html#comment-box" rel="external nofollow">
-									<i class="fa fa-comments-o fa-fw"></i>评论(0)
-									</a>
-								</span>
-							</span>
-                <div class="clear"></div>
-                <span class="entry-more">
-								<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
-							</span>
-            </div>
-        </article>
-        <article class="fade-in">
-            <figure class="thumbnail">
-                <a href="detail.html">
-                    <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F20180306184305.jpg-img_150x150" class="img-responsive lazy-img" alt="Java EE重命名为Jakarta EE：Java EE Guardians与Oracle的分歧">
-                </a>
-                <span class="cat"><a href="https://www.zhyd.me/type/2">后端技术</a></span>
-            </figure>
-            <header class="entry-header">
-                <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">Java EE重命名为Jakarta EE：Java EE Guardians与Oracle的分歧</a>
-                </h2>
-            </header>
-            <div class="entry-content">
-                <div class="archive-content">
-                    Java EE重命名为Jakarta EE。Oracle在2017年9月宣布将Java EE所有权转交给Eclipse Foundation时，曾明确表示希望Java EE重命名。
-                </div>
-                <span class="title-l"></span>
-                <span class="entry-meta">
-								<span class="date" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章发表日期"><i class="fa fa-calendar-o fa-fw"></i>2018-03-06</span>
-								<span class="views" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章阅读次数"><i class="fa fa-eye fa-fw"></i>浏览(138)</span>
-								<span class="comment" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="文章评论次数">
-									<a href="detail.html#comment-box" rel="external nofollow">
-										<i class="fa fa-comments-o fa-fw"></i>评论(0)
-									</a>
-								</span>
-							</span>
-                <div class="clear"></div>
-                <span class="entry-more">
-								<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
-							</span>
-            </div>
-        </article>-->
         <nav>
             <ul class="pager page-btn" data-url="https://www.zhyd.me/index" data-search="false">
-
                 <li>
                     <a class="pointer active">1</a>
                 </li>
-                <?php for($i=1;$i<$bbsList['allPage'];$i++) {
-                   echo '<li >';
-                   $page =$i+1;
-                   echo "<a class=\"pointer\" data - page = \"".$page."\" > ".$page."</a >";
-                   echo '</li >';
-                }?>
-                <!--  <li>
-                     <a class="pointer" data-page="3">3</a>
-                 </li>
-                 <li>
-                     <a class="pointer" data-page="4">4</a>
-                 </li>
-                 <li>
-                     <a class="pointer" data-page="5">5</a>
-                 </li>
-                 <li>
-                     <a class="pointer" data-page="6">6</a>
-                 </li>
-                 <li>
-                     <a class="pointer" data-page="7">7</a>
-                 </li>
-                 <li>
-                     <a class="pointer" data-page="8">8</a>
-                 </li>
-                 <li>
-                     <a class="pointer" data-page="9">9</a>
-                 </li>
-                 <li>
-                     <a class="pointer" data-page="10">10</a>
-                 </li>-->
+                <?php for($i=1;$i<$bbsList['pageAll'];$i++){?>
+                <li>
+                    <a class="pointer" data-page="<?php echo $i+1 ?>"><?php echo $i+1 ?></a>
+                </li>
+                <?php }
+                if($bbsList['pageAll']>10){  ?>
                 <li>
                     <a class="pointer" data-page="2"><i class="fa fa-angle-double-right"></i></a>
                 </li>
+                <?php }?>
             </ul>
         </nav>
     </div>
@@ -374,7 +108,7 @@
                     <div class="feed-about">
                         <div class="about-main">
                             <div class="about-img">
-                                <a href="./img/wx_300px.png" class="showImage" title="微信公众号"><img src="./img/wx_300px.png" alt="微信公众号"></a>
+                                <a href="" class="showImage" title="微信公众号"><img src="" alt="微信公众号"></a>
                             </div>
                             <div class="about-name">张亚东博客</div>
                             <div class="about-the">一个程序员的个人博客，心之所向，无所不能</div>
@@ -409,7 +143,7 @@
         <div class="sidebar-module">
             <h5 class="sidebar-title"><i class="fa fa-thumbs-o-up icon"></i><strong>站长推荐优惠活动，领优惠券啦~~</strong></h5>
             <a href="https://promotion.aliyun.com/ntms/act/ambassador/sharetouser.html?userCode=wylo59db&amp;utm_source=wylo59db" target="_blank" rel="external nofollow">
-                <img src="./img/ad/aliyun_sale.png" alt="阿里云首购8折" style="margin: 0 auto;" class="img-responsive">
+                <img src="" alt="阿里云首购8折" style="margin: 0 auto;" class="img-responsive">
             </a>
         </div>
         <div class="sidebar-module article-module hide" style="top: 0;">
@@ -422,171 +156,13 @@
         <div class="sidebar-module">
             <h5 class="sidebar-title"><i class="fa fa-tags icon"></i><strong>文章标签</strong></h5>
             <ul class="list-unstyled list-inline">
+                <?php  foreach ($bbsList['$tagsData'] as $tags){?>
                 <li class="tag-li">
                     <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/1" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Linux">
-                        Linux
+                        <?php echo $tags['name']?>
                     </a>
                 </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/2" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Java">
-                        Java
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/3" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Spring">
-                        Spring
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/4" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Spring Boot">
-                        Spring Boot
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/5" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Maven">
-                        Maven
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/6" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Docker">
-                        Docker
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/7" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="IDE">
-                        IDE
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/8" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="uzip">
-                        uzip
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/9" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="war">
-                        war
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/10" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Shell">
-                        Shell
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/11" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Flyat">
-                        Flyat
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/12" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="chrome">
-                        chrome
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/13" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="自动化测试">
-                        自动化测试
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/14" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Git">
-                        Git
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/15" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Task">
-                        Task
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/16" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="爬虫">
-                        爬虫
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/17" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="MySQL">
-                        MySQL
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/18" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="JS">
-                        JS
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/19" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="正则">
-                        正则
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/20" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Tomcat">
-                        Tomcat
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/21" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="FindBugs">
-                        FindBugs
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/22" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="版本控制">
-                        版本控制
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/23" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Nginx">
-                        Nginx
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/24" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Apache">
-                        Apache
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/25" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="其他">
-                        其他
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/26" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="阿里云优惠券">
-                        阿里云优惠券
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/27" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="微信小程序">
-                        微信小程序
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/28" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="网易云音乐">
-                        网易云音乐
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/29" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="阿里云服务器">
-                        阿里云服务器
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/30" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="阿里云优惠活动">
-                        阿里云优惠活动
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/31" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="ztree">
-                        ztree
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/32" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Cordova">
-                        Cordova
-                    </a>
-                </li>
-                <li class="tag-li">
-                    <a class="btn btn-default btn-xs" href="https://www.zhyd.me/tag/33" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Android">
-                        Android
-                    </a>
-                </li>
+                <?php }?>
             </ul>
         </div>
         <div class="sidebar-module">
@@ -668,7 +244,7 @@
             </ul>
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="home">
-                    <!--<ol class="list-unstyled">
+                    <ol class="list-unstyled">
                         <li>
                             <span class="li-icon li-icon-1">1</span>
                             <a href="detail.html" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Cordova入门（一）创建android项目">
@@ -711,10 +287,10 @@
                                 【超全】开发常用工具
                             </a>
                         </li>
-                    </ol>-->
+                    </ol>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="profile">
-                   <!-- <ol class="list-unstyled">
+                    <ol class="list-unstyled">
                         <li>
                             <span class="li-icon li-icon-1">1</span>
                             <a href="detail.html" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Cordova入门（一）创建android项目">
@@ -775,7 +351,7 @@
                                 Java EE重命名为Jakarta EE：Java EE Guardians与Oracle的分歧
                             </a>
                         </li>
-                    </ol>-->
+                    </ol>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="messages">
                     <ol class="list-unstyled">

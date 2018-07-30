@@ -154,9 +154,8 @@ $(function () {
         right: 25,//返回顶部按钮距离屏幕右边的距离，默认值为15
         bottom: 50//返回顶部按钮距离屏幕顶部的距离，默认值为30
     });
-
-    $("[data-toggle='tooltip']").tooltip();
-    $('[data-toggle="popover"]').popover();
+    /* $("[data-toggle='tooltip']").tooltip();
+    $('[data-toggle="popover"]').popover();*/
 
     // 图片预览
     $(".showImage").fancybox();
@@ -219,11 +218,11 @@ $(function () {
         });
     }
 
-    $("img.lazy-img").lazyload({
-        placeholder : appConfig.staticPath + "/img/loading.gif",
+/*    $("img.lazy-img").lazyload({
+        placeholder : appConfig.staticPath + "/static/img/loading.gif",
         effect: "fadeIn",
         threshold: 100
-    });
+    });*/
     $(window).bind("load", function() {
         var timeout = setTimeout(function() {
             $("img.lazy-img").trigger("sporty");

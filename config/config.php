@@ -8,6 +8,10 @@
 /*数据源配置*/
 //升级内存
 ini_set('memory_limit','512');
+//设置TITLE
+$title ='唐晓康博客 | 一个程序员的个人博客';
+//博主名称
+$blog_name = '唐晓康博客';
 //设置每页显示信息数量
 $num = 10;
 //设置页面标题后缀
@@ -22,8 +26,8 @@ $db = array(
 );
 $article_name = 'biz_article';
 //获取请求参数
-$action = isset($_GET['a'])?$_GET["a"]:'list';
-switch ($action){
-    case 'list':
-        include  'controller/listAction.php';break;
-}
+$article_id = isset($_GET['id'])?$_GET["id"]:0;
+//加载展示的action
+include 'controller/listAction.php';
+//请求执行
+/*$bbsList =requestFUN($db,$article_id,$article_name,$num);*/

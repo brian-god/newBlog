@@ -13,5 +13,7 @@ $db = array(
     'db_name' => 'dbblog'
 );
 $article_name = 'biz_article';
-include 'controller/listAction.php';
-var_dump($bbsList);
+include 'ptlfunction/function.php';
+$cont = db_connect($db);
+$num = allNum($cont,$article_name)['num'];
+var_dump($num);

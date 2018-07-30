@@ -34,8 +34,7 @@ function db_connect($db)
     return $conn;
 }
 //获取总共的文章的条数
-function allNum($db,$table){
-    $sql = 'select count(1) from '.$table ;
+function allNum($db,$sql){
     $row=[];
     if($result=mysqli_query($db,$sql)){
         /**
@@ -58,16 +57,49 @@ function allNum($db,$table){
 /**
  * 分页查询
  */
-function pabeDate($db,$table,$startNum,$endNum)
-{
-    $sql = 'select * from  ' . $table . '  LIMIT  ' . $startNum . ',' . $endNum;
-    $rows = [];
-    if ($result = mysqli_query($db, $sql)) {
+function pabeDate($db,$table,$startNum,$endNum){
+    $sql = 'select a.*,b.name from  '.$table .'  a left join biz_type b on a.type_id=b.id ORDER BY a.id  LIMIT ' . $startNum .','.$endNum;
+    $rows=[];
+    if($result=mysqli_query($db,$sql)){
         /**
          *函数从结果集中取得一行作为关联数组。
          * 返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false
          */
-        while ($row = mysqli_fetch_assoc($result)) {
+        /**
+         *函数从结果集中取得一行作为关联数组。
+         * 返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false
+         */
+        while($row = mysqli_fetch_assoc($result)){
+            //将返回的行数组放入到待返回数组
+            $rows[] = $row;
+        }
+        /**
+         * mysql_free_result() 函数释放结果内存。
+         * 如果成功，则返回 true，如果失败，则返回 false。
+         */
+        mysqli_free_result($result);
+    }
+    /**
+     * 关闭MySQL数据连接
+     */
+    unset($db);
+    return $rows;
+}
+/**
+ * 根据SQL语句查询返回集合
+ */
+function getArrayBySQL($db,$sql){
+    $rows=[];
+    if($result=mysqli_query($db,$sql)){
+        /**
+         *函数从结果集中取得一行作为关联数组。
+         * 返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false
+         */
+        /**
+         *函数从结果集中取得一行作为关联数组。
+         * 返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false
+         */
+        while($row = mysqli_fetch_assoc($result)){
             //将返回的行数组放入到待返回数组
             $rows[] = $row;
         }
