@@ -158,7 +158,7 @@ $(function () {
     $('[data-toggle="popover"]').popover();*/
 
     // 图片预览
-    $(".showImage").fancybox();
+   /* $(".showImage").fancybox();*/
 
     $(document).ajaxStart(function () {
         $("#loading").show();

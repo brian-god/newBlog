@@ -18,7 +18,7 @@ $connect = db_connect($db);
 //查询总条数的SQL
 $numSql = 'select COUNT(1) num from   '.$article_name;
 if($article_id !=0){
-    $numSql =$numSql .'where type_id='.$article_id;
+    $numSql =$numSql .'  where type_id='.$article_id;
     //如果不是首页则不显示轮播图
     $isShowImg = false;
 }
@@ -26,7 +26,7 @@ if($article_id !=0){
 //查询文章的总条数
 $articleNumArray = allNum($connect,$numSql);
 //获取总数
-$articleNum = !empty($articleNumArray['name']) ? $articleNumArray['name'] : 0;
+$articleNum = !empty($articleNumArray['num']) ? $articleNumArray['num'] : 0;
 /*end*/
 //在集合中添加文章总条数
 $bbsList['articleNum']= $articleNum;
@@ -42,15 +42,15 @@ $endNum = $page*$num;
 $articSql = 'select a.*,b.name from  '.$article_name .'  a left join biz_type b on a.type_id=b.id ';
 //判断需要查询的文章类型
 if($article_id !=0){
-    $articSql = $articSql .' where a.type_id ='.$article_id;
+    $articSql = $articSql .'  where a.type_id ='.$article_id;
 }
-$articSql = $articSql . ' ORDER BY a.id  LIMIT ' . $startNum .','.$endNum;
+$articSql = $articSql . '  ORDER BY a.id  LIMIT ' . $startNum .','.$endNum;
 //获取文章数据
 $page_Data = getArrayBySQL($connect,$articSql);
 //将分页数据放入到数据集合中
 $bbsList['page_Data'] =$page_Data;
-//计算总页数
-$pageAll = ($articleNum  +  $num  - 1) / $num;
+//计算总页数 向下取整
+$pageAll = floor(($articleNum  +  $num  - 1) / $num);
 //总页数
 $bbsList['pageAll'] = $pageAll;
 //查询标签的SQL语句
@@ -67,3 +67,4 @@ $Top_menus = getArrayBySQL($connect,$top_menuSQL);
 $bbsList['$Top_menus'] =$Top_menus;
 //是否显示轮播图
 $bbsList['isShowImg'] =$isShowImg;
+$bbsList['tpl_Name'] = $tpl_Name;

@@ -10,6 +10,7 @@ function blog_load_tpl($tplName)
 {
     global $bbsList;    //论坛帖子列表
     global $bbsListPage;//论坛帖子列表分页html
+    global  $num;    //每也显示的条数
     global $bbsListHot; //论坛热门帖子列表
     global $bbsType;    //论坛帖子类型 1最新 2热门
     global $details;    //论坛帖子详情

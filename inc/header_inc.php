@@ -75,6 +75,10 @@
 </nav>
 <div class="container custome-container">
     <!--[if lt IE 9]><div class="alert alert-danger topframe" role="alert">Oh My God！你的浏览器实在<strong>太太太太太太旧了</strong>，赶紧升级浏览器 <a target="_blank" class="alert-link" href="http://browsehappy.com">立即升级</a></div><![endif]-->
+    <?php
+    $tplname =!empty($bbsList['tpl_Name']) ? $bbsList['tpl_Name'] : '';
+    //判断只有在list展示界面中显示提示消息
+    if($tplname == 'list'){?>
     <nav class="breadcrumb">
         <div class="notify"><i class="fa fa-volume-up"></i></div>
         <div id="scrolldiv">
@@ -95,3 +99,4 @@
             </div>
         </div>
     </nav>
+    <?php  }?>

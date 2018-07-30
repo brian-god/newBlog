@@ -77,17 +77,18 @@
 							</span>
                 <div class="clear"></div>
                 <span class="entry-more">
-								<a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
+								<a href="/?type=detail&id=<?php echo $article['id'] ?>" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情">阅读全文</a>
 							</span>
             </div>
         </article>
         <?php }?>
         <nav>
             <ul class="pager page-btn" data-url="https://www.zhyd.me/index" data-search="false">
+                <?php if($bbsList['articleNum']>$num){?>
                 <li>
                     <a class="pointer active">1</a>
                 </li>
-                <?php for($i=1;$i<$bbsList['pageAll'];$i++){?>
+                <?php } for($i=1;$i<$bbsList['pageAll'];$i++){?>
                 <li>
                     <a class="pointer" data-page="<?php echo $i+1 ?>"><?php echo $i+1 ?></a>
                 </li>
