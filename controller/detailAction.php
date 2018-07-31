@@ -19,3 +19,9 @@ $top_menuSQL = 'select id,name,sort,icon,available from biz_type ORDER BY sort '
 $Top_menus = getArrayBySQL($connect,$top_menuSQL);
 //向集合中放入菜单的集合
 $bbsList['$Top_menus'] =$Top_menus;
+//查询文章
+$articSql = 'select a.*,b.name,b.id type_id from  '.$article_name .'  a left join biz_type b on a.type_id=b.id  '. 'where a.id='.$article_id;
+//获取文章数据
+$page_Data = getArrayBySQL($connect,$articSql);
+//将文章放入到集合中
+$bbsList['page_Data'] =$page_Data;

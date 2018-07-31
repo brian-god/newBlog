@@ -14,6 +14,8 @@
     <!--图标样式-->
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.css" />
     <link href="static/txk/css/bootstrap.min.css" rel="stylesheet">
+    <!--引入tooltip-->
+    <link href="static/tooltip/tooltip.css" rel="stylesheet">
     <link href="static/txk/css/jquery-confirm.min.css" rel="stylesheet">
     <link href="static/txk/css/jquery.fancybox.min.css" rel="stylesheet">
     <link href="static/txk/css/bootstrapValidator.min.css" rel="stylesheet">
@@ -78,8 +80,12 @@
     <?php
     $tplname =!empty($bbsList['tpl_Name']) ? $bbsList['tpl_Name'] : '';
     //判断只有在list展示界面中显示提示消息
-    if($tplname == 'list'){?>
-    <nav class="breadcrumb">
+    $display = 'none';
+    if($tplname == 'list'){
+        //若为首页则显示
+        $display ='visible';
+    }?>
+    <nav class="breadcrumb" style="display:<?php echo $display?>;" >
         <div class="notify"><i class="fa fa-volume-up"></i></div>
         <div id="scrolldiv">
             <div class="scrolltext">
@@ -99,4 +105,3 @@
             </div>
         </div>
     </nav>
-    <?php  }?>

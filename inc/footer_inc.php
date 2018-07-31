@@ -72,6 +72,8 @@
 <script type="text/javascript" src="static/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
 <!--引入计时器-->
 <script type="text/javascript" src="static/txk/js/time.js"></script>
+<!--引入提示的js-->
+<script src="static/tooltip/tooltip.js"></script>
 <style>
     /* Make the image fully responsive */
     .carousel-inner img {
@@ -82,11 +84,11 @@
 <script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"/>
 <!--点击弹出向上的字体关联类-->
 <script type="text/javascript" src="static/txk/js/jquery.fancybox.min.js"></script>
-<!--<script type="text/javascript" src="static/txk/js/jquery.lazyload.min.js"></script>
-<script type="text/javascript" src="static/txk/js/jquery-confirm.min.js"></script>-->
-<!--<script type="text/javascript" src="static/txk/js/bootstrapValidator.min.js"></script>
-<script type="text/javascript" src="static/txk/js/xss.min.js"></script>-->
-<!--<script type="text/javascript" src="static/txk/js/popper-utils.js"></script>-->
+<script type="text/javascript" src="static/txk/js/jquery.lazyload.min.js"></script>
+<script type="text/javascript" src="static/txk/js/jquery-confirm.min.js"></script>
+<script type="text/javascript" src="static/txk/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="static/txk/js/xss.min.js"></script>
+<script type="text/javascript" src="static/txk/js/popper-utils.js"></script>
 <script type="text/javascript" src="static/js/zhyd.core.js"></script>
 <script type="text/javascript" src="static/js/zhyd.js"></script>
 <script type="text/javascript" src="static/js/zhyd.comment.js"></script>

@@ -29,8 +29,6 @@ $article_name = 'biz_article';
 $article_id = isset($_GET['id'])?$_GET["id"]:0;
 //需要加载的action
 $actionName = isset($_GET['type'])?$_GET["type"]:'list';
-var_dump($actionName);
-var_dump($article_id);
 switch ($actionName){
     case 'list':
         //加载展示的action

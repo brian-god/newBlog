@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="static/tooltip/tooltip.css" rel="stylesheet">
+    <script src="static/txk/js/jquery.min.js"></script>
+    <script src="static/tooltip/tooltip.js"></script>
+    <style >
+        *{margin: 0px;padding: 0px;}
+        body{position: relative;height: 1500px; font-size: 14px; }
+        .test{position: absolute; width: 100px; height: 30px; line-height: 30px; text-align: center; border: 1px solid #f0f;  cursor: pointer;}
+        .bottom{ left: 50%; top: 10px; margin-left: -50px;}
+    </style>
+</head>
+<body>
+    <div  class="test bottom " data-toggle="tooltip"  data-placement="bottom" data-original-title="下方提示测试">下方提示测试</div>
+</body>
+<script type="text/javascript">
+    /*选定带有data-toggle="tooltip"的值*/
+    var tooltip = $("[data-toggle=\"tooltip\"]");
+    var placement = tooltip.data("placement");
+    var title = tooltip.data("original-title");
+    tooltip.iTooltip({ "posType":placement,"dataMess":title});
+</script>
+</html>

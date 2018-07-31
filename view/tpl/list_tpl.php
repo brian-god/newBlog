@@ -50,7 +50,7 @@
         foreach ($bbsList['page_Data'] as $article){?>
         <article class="fade-in">
             <figure class="thumbnail">
-                <a href="detail.html">
+                <a href="/?type=detail&id=<?php echo $article['id'] ?>">
                     <img width="150" height="150" data-original="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F1516792670965.png-img_150x150" class="img-responsive lazy-img" alt="Cordova入门（一）创建android项目" src="http://p4c3z3uxb.bkt.clouddn.com/flyat%2Fcover%2F1516792670965.png-img_150x150" style="display: block;">
                 </a>
                 <span class="cat"><a href="https://www.zhyd.me/type/2"><?php echo $article['name']?></a></span>
@@ -58,7 +58,7 @@
             <header class="entry-header">
                 <!--//获取标题-->
                 <h2 class="entry-title">
-                    <a href="detail.html" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情"><?php echo $article['title']?></a>
+                    <a href="/?type=detail&id=<?php echo $article['id'] ?>" rel="bookmark" title="" data-toggle="tooltip" data-placement="bottom" data-original-title="点击查看文章详情"><?php echo $article['title']?></a>
                 </h2>
             </header>
             <div class="entry-content">
