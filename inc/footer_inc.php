@@ -69,11 +69,9 @@
 </footer>
 <a class="to-top" title="" data-toggle="tooltip" data-placement="bottom" style="position: fixed; right: 25px; bottom: 50px; cursor: pointer; display: none;" data-original-title="点击返回顶部"></a>
 <script type="text/javascript" src="static/txk/js/jquery.min.js"></script>
-<script type="text/javascript" src="static/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="static/bootstrap3.3.4/js/bootstrap.min.js"></script>
 <!--引入计时器-->
 <script type="text/javascript" src="static/txk/js/time.js"></script>
-<!--引入提示的js-->
-<script src="static/tooltip/tooltip.js"></script>
 <style>
     /* Make the image fully responsive */
     .carousel-inner img {
@@ -81,7 +79,6 @@
         height: 100%;
     }
 </style>
-<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"/>
 <!--点击弹出向上的字体关联类-->
 <script type="text/javascript" src="static/txk/js/jquery.fancybox.min.js"></script>
 <script type="text/javascript" src="static/txk/js/jquery.lazyload.min.js"></script>

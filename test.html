@@ -19,8 +19,8 @@
 <script type="text/javascript">
     /*选定带有data-toggle="tooltip"的值*/
     var tooltip = $("[data-toggle=\"tooltip\"]");
-    var placement = tooltip.data("placement");
-    var title = tooltip.data("original-title");
+    var placement = tooltip.data("-placement");
+    var title = tooltip.data("-original-title");
     tooltip.iTooltip({ "posType":placement,"dataMess":title});
 </script>
 </html>

@@ -13,9 +13,7 @@
     <link href="static/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <!--图标样式-->
     <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.css" />
-    <link href="static/txk/css/bootstrap.min.css" rel="stylesheet">
-    <!--引入tooltip-->
-    <link href="static/tooltip/tooltip.css" rel="stylesheet">
+    <link href="static/bootstrap3.3.4/css/bootstrap.min.css" rel="stylesheet">
     <link href="static/txk/css/jquery-confirm.min.css" rel="stylesheet">
     <link href="static/txk/css/jquery.fancybox.min.css" rel="stylesheet">
     <link href="static/txk/css/bootstrapValidator.min.css" rel="stylesheet">

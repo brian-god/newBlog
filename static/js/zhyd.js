@@ -116,7 +116,7 @@ function initScrollMenu() {
     }
 }
 var PaymentUtils = window.payment || {
-   /* config: [{url: appConfig.staticPath + '/img/alipay_nb.jpg', desc: '支付宝转账'},{url: appConfig.staticPath + '/img/wechat_nb.jpg', desc: '微信转账'}],*/
+    config: [{url: '/static/img/alipay_nb.jpg', desc: '支付宝转账'},{url: '/static/img/wechat_nb.jpg', desc: '微信转账'}],
     show : function () {
         $("#reward").modal('show');
         this.change(0);
@@ -154,11 +154,11 @@ $(function () {
         right: 25,//返回顶部按钮距离屏幕右边的距离，默认值为15
         bottom: 50//返回顶部按钮距离屏幕顶部的距离，默认值为30
     });
-    /*$("[data-toggle='tooltip']").tooltip();
-    $('[data-toggle="popover"]').popover();*/
+    $("[data-toggle='tooltip']").tooltip();
+    $('[data-toggle="popover"]').popover();
 
     // 图片预览
-   /* $(".showImage").fancybox();*/
+    $(".showImage").fancybox();
 
     $(document).ajaxStart(function () {
         $("#loading").show();
@@ -218,11 +218,11 @@ $(function () {
         });
     }
 
-/*    $("img.lazy-img").lazyload({
-        placeholder : appConfig.staticPath + "/static/img/loading.gif",
+    $("img.lazy-img").lazyload({
+        placeholder :  "/static/img/loading.gif",
         effect: "fadeIn",
         threshold: 100
-    });*/
+    });
     $(window).bind("load", function() {
         var timeout = setTimeout(function() {
             $("img.lazy-img").trigger("sporty");

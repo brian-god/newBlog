@@ -109,15 +109,15 @@
                     <div class="feed-about">
                         <div class="about-main">
                             <div class="about-img">
-                                <a href="" class="showImage" title="微信公众号"><img src="" alt="微信公众号"></a>
+                                <a href="static/img/WeChatpublicnumber.jpg" class="showImage" title="微信公众号"><img src="static/img/WeChatpublicnumber.jpg" alt="微信公众号"></a>
                             </div>
-                            <div class="about-name">张亚东博客</div>
+                            <div class="about-name"><?php echo $blog_name?></div>
                             <div class="about-the">一个程序员的个人博客，心之所向，无所不能</div>
                         </div>
                         <div class="clear"></div>
                         <!-- 方案一：图标展示 -->
                         <ul class="widget-icon">
-                            <li class="weixin auto-shake" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-content="&lt;img src='https://static.zhyd.me/static/img/wx_300px.png' style='width: 130px;' alt='QR Code'&gt;" data-original-title="" title="">
+                            <li class="weixin auto-shake" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-content="&lt;img src='static/img/wx.jpg' style='width: 130px;' alt='QR Code'&gt;" data-original-title="" title="">
                                 <a class="tag-icon" title="微信" rel="external nofollow"><i class="fa fa-weixin"></i></a>
                             </li>
                             <li class="tqq auto-shake">
@@ -434,7 +434,6 @@
             </ul>
         </div>
     </div>
-</div>
 </div>
 <section class="links index-links">
     <ul class="list-unstyled list-inline">
