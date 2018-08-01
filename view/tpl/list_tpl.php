@@ -108,8 +108,8 @@
                 <div id="feed_widget">
                     <div class="feed-about">
                         <div class="about-main">
-                            <div class="about-img">
-                                <a href="static/img/WeChatpublicnumber.jpg" class="showImage" title="微信公众号"><img src="static/img/WeChatpublicnumber.jpg" alt="微信公众号"></a>
+                            <div class="about-img"  title="" data-toggle="tooltip" data-placement="bottom" data-original-title="微信公众号">
+                                <a href="static/img/WeChatpublicnumber.jpg" class="showImage" ><img src="static/img/WeChatpublicnumber.jpg" alt="微信公众号"></a>
                             </div>
                             <div class="about-name"><?php echo $blog_name?></div>
                             <div class="about-the">一个程序员的个人博客，心之所向，无所不能</div>
@@ -168,68 +168,28 @@
         </div>
         <div class="sidebar-module">
             <h5 class="sidebar-title"><i class="fa fa-comments icon"></i><strong>近期评论</strong></h5>
-            <!--<ul class="list-unstyled list-inline comments">
+            <ul class="list-unstyled list-inline comments">
+                <?php
+                //获取近期评论
+                $commentArray=$bbsList['commentArray'];
+                //判断评论是否为空
+                if(empty($commentArray)){
+                    echo '暂无评论';
+                }else{
+                    foreach ($commentArray as $comment){
+                ?>
                 <li>
-                    <a href="detail.html#comment-58" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="可以">
-                        <img alt="骑着蜗牛追法拉利" src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">骑着蜗牛追法拉利</span> 可以
+                    <!--评论详情-->
+                    <a href="detail.html#comment-58" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="<?php echo $comment['content'] ?>">
+                        <img alt="<?php echo $comment['nickname']?>" src="<?php echo $comment['avatar'] ?>" class="avatar auto-shake" height="64" width="64" onerror="this.src='<?php echo $comment["avatar"] ?>'">
+                        <span class="comment-author"><?php echo $comment['nickname']?></span>
+                        <?php echo $comment['content'] ?>
                     </a>
                 </li>
-                <li>
-                    <a href="detail.html#comment-57" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="​x">
-                        <img alt="一块乐" src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">一块乐</span> ​x
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.zhyd.me/guestbook#comment-51" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="OK了">
-                        <img alt="超级管理员" src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">超级管理员</span> OK了
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.zhyd.me/guestbook#comment-48" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="您好，我的网站：陈双义博客，更...">
-                        <img alt="陈双义博客" src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">陈双义博客</span> 您好，我的网站：陈双义博客，更...
-                    </a>
-                </li>
-                <li>
-                    <a href="detail.html#comment-47" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="没有哇！没啥影响的，欢迎来学习...">
-                        <img alt="超级管理员" src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">超级管理员</span> 没有哇！没啥影响的，欢迎来学习...
-                    </a>
-                </li>
-                <li>
-                    <a href="detail.html#comment-46" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="博客很好看">
-                        <img alt="匿名" src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">匿名</span> 博客很好看
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.zhyd.me/guestbook#comment-45" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="System.out.prin...">
-                        <img alt="xsy" src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">xsy</span> System.out.prin...
-                    </a>
-                </li>
-                <li>
-                    <a href="detail.html#comment-44" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="是我啊！说来也惭愧，学.net...">
-                        <img alt="Harrison  " src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">Harrison </span> 是我啊！说来也惭愧，学.net...
-                    </a>
-                </li>
-                <li>
-                    <a href="detail.html#comment-43" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="40GSSD硬盘啊。">
-                        <img alt="超级管理员" src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">超级管理员</span> 40GSSD硬盘啊。
-                    </a>
-                </li>
-                <li>
-                    <a href="detail.html#comment-42" title="" rel="external nofollow" data-toggle="tooltip" data-placement="bottom" data-original-title="空间有多大？">
-                        <img alt="兽性大发" src="./img/user.png" class="avatar auto-shake" height="64" width="64" onerror="this.src='./img/user.png'">
-                        <span class="comment-author">兽性大发</span> 空间有多大？
-                    </a>
-                </li>
-            </ul>-->
+                <?php
+                    }
+                }?>
+            </ul>
         </div>
         <div class="sidebar-module">
             <ul class="nav nav-tabs sidebar-tabs" role="tablist">
@@ -424,9 +384,9 @@
         <div class="sidebar-module">
             <h5 class="sidebar-title"><i class="fa fa-info icon"></i><strong>网站信息</strong></h5>
             <ul class="ul-default">
-                <li> <i class="fa fa-file fa-fw"></i> 文章总数：92 篇</li>
-                <li> <i class="fa fa-tags fa-fw"></i> 标签总数：33 个</li>
-                <li> <i class="fa fa-folder-open fa-fw"></i> 分类总数：6 个</li>
+                <li> <i class="fa fa-file fa-fw"></i> 文章总数：<?php echo $bbsList['articleNum']?>篇</li>
+                <li> <i class="fa fa-tags fa-fw"></i> 标签总数：<?php  echo count($bbsList['$tagsData'])?> 个</li>
+                <li> <i class="fa fa-folder-open fa-fw"></i> 分类总数：<?php  echo count($bbsList['$Top_menus'])?> 个</li>
                 <li> <i class="fa fa-comments fa-fw"></i> 留言数量：50 条</li>
                 <li> <i class="fa fa-users fa-fw"></i> 在线人数：<span class="online">11</span>人</li>
                 <li> <i class="fa fa-calendar fa-fw"></i> 运行天数：201天</li>

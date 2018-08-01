@@ -68,3 +68,9 @@ $bbsList['$Top_menus'] =$Top_menus;
 //是否显示轮播图
 $bbsList['isShowImg'] =$isShowImg;
 $bbsList['tpl_Name'] = $tpl_Name;
+//近期评论
+$commentSQL='select  b.content,u.nickname,u.avatar  from  biz_comment b left join sys_user u  on b.user_id =u.id ORDER BY b.create_time desc LIMIT 0,10';
+//获取评论
+$commentArray = getArrayBySQL($connect,$commentSQL);
+//将评论放入到初始化的集合中
+$bbsList['commentArray'] = $commentArray;

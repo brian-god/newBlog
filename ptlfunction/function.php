@@ -117,3 +117,31 @@ function getArrayBySQL($db,$sql){
     unset($db);
     return $rows;
 }
+/**
+* 根据SQL语句查询返回单条记录
+*/
+function getOneRowBySQL($db,$sql){
+    $row=[];
+    if($result=mysqli_query($db,$sql)){
+        /**
+         *函数从结果集中取得一行作为关联数组。
+         * 返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false
+         */
+        /**
+         *函数从结果集中取得一行作为关联数组。
+         * 返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false
+         */
+       $row = mysqli_fetch_assoc($result);
+
+        /**
+         * mysql_free_result() 函数释放结果内存。
+         * 如果成功，则返回 true，如果失败，则返回 false。
+         */
+        mysqli_free_result($result);
+    }
+    /**
+     * 关闭MySQL数据连接
+     */
+    unset($db);
+    return $row;
+}
